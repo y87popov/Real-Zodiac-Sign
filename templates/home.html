@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="display-4">Find out your true zodiac sign!</h1>
+    <p>Constellations have always been 13, therefore there are 13 zodiac signs! Julius Caesar censored the real horoscope by removing one of the zodiac signs (Ophiuchus) and changing the duration of the others.</h2>
+    <h1>If you want to see your true zodiac sign and what it says about you, click <a href="{{ url_for('date') }}">here</a>!</h1>
+    <p>If the science of Astrology did not contain any truth in itself, Julius Caesar would hardly have bothered to censor it!</p>
+</div>
+{% endblock %}
