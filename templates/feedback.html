@@ -1,0 +1,25 @@
+<!-- In feedback.html -->
+
+{% extends "base.html" %}
+
+{% block title %}Feedback{% endblock %}
+
+{% block content %}
+    <h1>Feedback</h1>
+    <table class="feedback-table">
+        <tr>
+            <th>Name</th>
+            <th>Comment</th>
+            <th>Rating</th>
+            <th>Zodiac Sign</th>
+        </tr>
+        {% for feedback in feedback_data %}
+        <tr>
+            <td>{{ feedback.name }}</td>
+            <td>{{ feedback.comment }}</td>
+            <td>{{ feedback.rating }}</td>
+            <td>{{ feedback.zodiac_sign }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

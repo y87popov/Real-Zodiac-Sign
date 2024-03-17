@@ -48,6 +48,28 @@ nav ul li a:hover {
     margin-left: 20px; /* Adjust the left margin to create space from the edge of the page */
 }
 
+.feedback-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.feedback-table th, .feedback-table td {
+    padding: 10px; /* Adjust the padding as needed */
+    text-align: left;
+}
+
+.feedback-table th {
+    background-color: #f2f2f2; /* Background color for table header */
+}
+
+.feedback-table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Alternate row color */
+}
+
+.feedback-table tr:hover {
+    background-color: #ddd; /* Hover row color */
+}
+
 footer {
     margin-top: auto; /* Push footer to the bottom */
     width: 100%; /* Make the footer span the entire width */

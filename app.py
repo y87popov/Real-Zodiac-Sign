@@ -1,8 +1,7 @@
 from typing import Optional
 from flask import Flask, render_template, request, redirect, url_for
 from data.zodiac_data import zodiac_info
-from data.db import save_feedback_to_database
-
+from data.db import save_feedback_to_database, get_feedback_from_database
 app = Flask(__name__)
 
 
@@ -63,8 +62,9 @@ def result(zodiac_sign):
     if zodiac_info_entry:
         return render_template('result.html', zodiac_sign=zodiac_sign, zodiac_info=zodiac_info_entry)
 
-@app.route('/save_feedback/<zodiac_sign>', methods=['POST'])
 
+
+@app.route('/save_feedback/<zodiac_sign>', methods=['POST'])
 def save_feedback(zodiac_sign):
     name = request.form['name']
     comment = request.form['comment']
@@ -73,7 +73,15 @@ def save_feedback(zodiac_sign):
     # Save the feedback to the database
     save_feedback_to_database(name, comment, rating, zodiac_sign)
 
-    return redirect(url_for('home'))  # Redirect the user to the home page or any other appropriate page
+    return redirect(url_for('feedback'))  # Redirect to the feedback page
+
+
+
+@app.route('/feedback')
+def feedback():
+    feedback_data = get_feedback_from_database()
+    print("Feedback data from database:", feedback_data)  # Add this line for debugging
+    return render_template('feedback.html', feedback_data=feedback_data)
 
 if __name__ == '__main__':
     app.run(debug=True)
