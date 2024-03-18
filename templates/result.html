@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Zodiac Result{% endblock %}
+
+{% block content %}
+    <div style="padding: 20px;">
+        <h2>Your Zodiac Sign</h2>
+        <p>Your zodiac sign is: {{ zodiac_sign }}</p>
+        
+        <h3>Information about {{ zodiac_sign }}</h3>
+        <ul>
+            <li><strong>Strengths:</strong> {{ zodiac_info["Strengths"] }}</li>
+            <li><strong>Weaknesses:</strong> {{ zodiac_info["Weaknesses"] }}</li>
+            <li><strong>Careers:</strong> {{ zodiac_info["Careers"] }}</li>
+        </ul>
+
+        <!-- Form to collect user's name, comment, and rating -->
+        <form method="POST" action="{{ url_for('save_feedback', zodiac_sign=zodiac_sign) }}">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="comment">Your Comment:</label><br>
+            <textarea id="comment" name="comment" rows="4" cols="50" required></textarea><br><br>
+
+            <label for="rating">Rate the App (From 1 to 5):</label>
+            <input type="number" id="rating" name="rating" min="1" max="5" required><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+{% endblock %}

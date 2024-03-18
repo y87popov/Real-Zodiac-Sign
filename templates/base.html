@@ -1,0 +1,32 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Website{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('date') }}">Date</a></li>
+            <li><a href="{{ url_for('feedback') }}">Feedback</a></li> <!-- Add this line for the feedback page -->
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Find out your true zodiac sign!</h1>
+    </header>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer>
+        <p>Copyright © 2024 My Website</p>
+    </footer>
+</body>
+</html>
